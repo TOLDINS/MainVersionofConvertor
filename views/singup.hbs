@@ -1,0 +1,106 @@
+<div style="min-height: calc(100vh - 80px);">
+<form method="POST" >
+  <div class="container">
+
+    <p class="process">Please fill in this form to process your data.</p>
+    <hr>
+
+    <label for="email"><b>Email</b></label>
+    <input id="email" type="text" placeholder="Enter Email" name="email" required >
+
+    <label for="name"><b>Name</b></label>
+    <input id="name" type="text" placeholder="Enter Name" name="name" required>
+      <label for="address"><b>Address</b></label>
+    <input id="address" type="text" placeholder="Enter Address" name="address" required>
+      <label for="city"><b>City</b></label>
+    <input id="city" type="text" placeholder="Enter City" name="city" required>
+      <label for="state"><b>State</b></label>
+    <input id="state" type="text" placeholder="Enter State" name="state" required>
+      <label for="zip"><b>Zip</b><Zipbel>
+    <input id="zip" type="text" placeholder="Enter Zip" name="zip" required type="number">
+      <label for="phone"><b>Phone</b></label>
+    <input id="phone" type="text" placeholder="Enter Phone" name="phone" required type="number">
+      <label for="corporation"><b>Corporation</b></label>
+    <input id="corporation" type="text" placeholder="Enter Corporation" name="corporation" required>
+  
+    <textarea id="comments" name="subject" placeholder="Write Comments" style="height:200px ; width:850px"></textarea>
+
+
+    
+    
+
+    
+    <button type="submit" class="registerbtn" style="text-align: center" >Send info</button>
+  </div>
+
+  
+    <style>
+        .area{
+            padding-top: 200px;
+        }
+        .container {
+
+  padding: 0;
+}
+.process{
+
+color: #00c853;
+font-size: 22pt;
+padding-left: 30%;
+
+
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 850px;
+  opacity: 0.9;
+  
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+    </style>
+  </div>
+</form>
+</div>
