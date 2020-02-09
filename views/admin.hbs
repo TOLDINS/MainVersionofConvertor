@@ -1,9 +1,97 @@
 
-<div style="min-height: calc(100vh - 80px);" >
-<form action="/admin" method="POST">
+<div style="min-height: calc(100vh - 80px); " >
+<form method="POST"> 
+    <a>{{esult}}</a>
+
 <div>
-        <h1></h1>
-        <h>{{Info}}</h>
+      <style>
+              table {
+            width: 100%; /* Ширина таблицы */
+                 }
+                 tr{
+                     
+
+                 }
+                td {
+            padding: 10px; /* Поля в ячейках */
+            vertical-align:middle; /* Выравнивание по верхнему краю ячеек */
+            text-align: center;
+            }
+   
+  </style>
+
+ 
+    <table style="background-color: slategrey; color:white">
+        <h1 style="padding-left: 40%; background-color:slategrey; color:rgb(119, 3, 3)">All info in Database</h1>
+        <thead>
+            <tr>
+                
+                <th>Email</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Phone</th>
+                <th>Corporation</th>
+
+            </tr>
+
+        </thead>
+        <tbody>
+         {{#each result}}
+         
+            <tr>
+                <td>{{email}}</td>
+                <td>{{name}}</td>
+                <td>{{address}}</td>
+                <td>{{city}}</td>
+               <td>{{state}}</td>
+                <td>{{zip}}</td>
+                <td>{{phone}}</td>
+                <td>{{corporation}}</td>
+
+               
+            </tr>
+          {{/each}}  
+            
+        </tbody>
+    </table>
+    <div class="Back">
+
+        <a  href="/" style="text-align:left;">
+            Back to Main Page
+        </a>
+
+       <style>
+           .Back{
+
+               padding-top: 41%;
+
+
+           }
+       </style>
+
+    </div>
+    <div class="btn-class">
+        <button  style="background-color:slategrey; color:white " >Download Csv-File</button>
+    <style>
+      .btn-class{
+          border-radius: 10px;
+    
+         
+          padding-left: 38%;
+           
+      }
+
+    </style>
+    
+    </div>
+        
+
+</div>
+
+   
 </div>
 
 </form>

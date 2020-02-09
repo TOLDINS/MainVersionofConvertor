@@ -21,6 +21,9 @@ const userSchema=new Schema({
         type:String
 
     },
+    state:{
+        type:String
+    },
     zip:{
         type:Number
 
@@ -34,7 +37,7 @@ const userSchema=new Schema({
 
 
     },
-    corporationtype:{
+    corporation:{
         type:String
 
 
