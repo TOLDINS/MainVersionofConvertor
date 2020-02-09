@@ -15,14 +15,10 @@ app.set("view engine", "hbs");
 app.set('views','views');
  
 app.use('/',startRoute);
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://denis:1111@cluster0-9gu3c.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+mongoose.connect('mongodb+srv://user:1234@cluster0-9gu3c.mongodb.net/test?retryWrites=true&w=majority',{
+    useUnifiedTopology : true,
+    useNewUrlParser : true
+}).then(()=>console.log('Db connected')).catch(()=>console.log(error));
 
 
 
