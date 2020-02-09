@@ -16,12 +16,12 @@ app.set('views','views');
  
 app.use('/',startRoute);
 const uri = "mongodb+srv://denis:1111@cluster0-9gu3c.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(uri,{
-    useUnifiedTopology : true,
-    useNewUrlParser : true
-}).then(()=>console.log('Db connected')).catch(()=>console.log(error));
-
-
+mongoose.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true});
+const db=mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+    console.log('connect')
+  });
 
 
 
