@@ -15,13 +15,14 @@ app.set("view engine", "hbs");
 app.set('views','views');
  
 app.use('/',startRoute);
+const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://denis:1111@cluster0-9gu3c.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true});
-const db=mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-    console.log('connect')
-  });
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
 
 
 
