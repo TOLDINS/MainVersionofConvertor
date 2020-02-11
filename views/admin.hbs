@@ -1,6 +1,6 @@
 
 <div style="min-height: calc(100vh - 80px); " >
-<form method="POST"> 
+<form method="POST">
     <a>{{esult}}</a>
 
 <div>
@@ -9,7 +9,7 @@
             width: 100%; /* Ширина таблицы */
                  }
                  tr{
-                     
+
 
                  }
                 td {
@@ -17,15 +17,15 @@
             vertical-align:middle; /* Выравнивание по верхнему краю ячеек */
             text-align: center;
             }
-   
+
   </style>
 
- 
+
     <table style="background-color: slategrey; color:white">
         <h1 style="padding-left: 40%; background-color:slategrey; color:rgb(119, 3, 3)">All info of Database</h1>
         <thead>
             <tr>
-                
+
                 <th>Email</th>
                 <th>Name</th>
                 <th>Address</th>
@@ -40,7 +40,7 @@
         </thead>
         <tbody>
          {{#each result}}
-         
+
             <tr>
                 <td>{{email}}</td>
                 <td>{{name}}</td>
@@ -51,10 +51,10 @@
                 <td>{{phone}}</td>
                 <td>{{corporation}}</td>
 
-               
+
             </tr>
-          {{/each}}  
-            
+          {{/each}}
+
         </tbody>
     </table>
     <div class="Back">
@@ -78,21 +78,22 @@
     <style>
       .btn-class{
           border-radius: 10px;
-    
-         
+
+
           padding-left: 38%;
-           
+
       }
 
     </style>
-    
     </div>
-        
+
 
 </div>
 
-   
-</div>
 
 </form>
+    <form method="POST" action="/send">
+        <input type="text" id="email" name="email" placeholder="fkekge@err.com">
+        <button type="submit" class="registerbtn" style="text-align: center" >Send info</button>
+    </form>
 </div>

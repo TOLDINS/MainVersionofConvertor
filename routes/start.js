@@ -25,10 +25,10 @@ async function  csvWriter(data){
 
 
 router.get('/',(req,res)=>{
-    
+
     res.render('main',{
         title: 'StartUp',
-        
+
     });
 
 })
@@ -38,7 +38,7 @@ router.get('/info',(req,res)=>{
 
 })
 router.get('/singup',(req,res)=>{
-    
+
 
 
     res.render('singup');
@@ -47,7 +47,7 @@ router.get('/singup',(req,res)=>{
 })
 
 router.post('/singup',urlencodedParser,(req,res)=>{
-    
+
 console.log(req.body);
   const user=new User({
         email: req.body.email,
@@ -69,15 +69,17 @@ console.log(req.body);
          throw (e);
     }
 
-    
-    
+
+
     res.redirect('/');
 
 
 
 
 })
-
+router.post('/send',urlencodedParser,(req,res)=>{
+console.log(req.body.email);
+});
 
 router.get('/admin',async (req,res)=>{
     try {
@@ -89,13 +91,13 @@ router.get('/admin',async (req,res)=>{
         console.log(csv);
         console.log(esult);
         csvWriter(csv);
-       
+
     res.render('admin',{
 
-                
+
            result:esult
-        
-        
+
+
     });
 
       } catch (err) {
@@ -108,12 +110,7 @@ router.get('/admin',async (req,res)=>{
 
 
 router.post('/admin',(req,res)=>{
-
-
 res.sendfile(__dirname+'/test.csv');
-
-
-
 })
 
 router.get('/login',(req,res)=>{
@@ -132,7 +129,7 @@ router.post('/login', urlencodedParser,(req,res)=>{
 
 
             res.redirect('admin')
-            
+
 
         }
     }
@@ -141,12 +138,12 @@ router.post('/login', urlencodedParser,(req,res)=>{
         res.render('main');
 
 
-    
+
     }
 });
 
 
-    
+
 
 
 
