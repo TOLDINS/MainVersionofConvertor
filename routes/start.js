@@ -82,7 +82,6 @@ router.post('/send',(req,res, next)=>{
 
     console.log(req.file);
     console.log(req.body);
-    res.send("huy")
     const message={
         to: req.body.email,
         subject:'Done',
@@ -97,14 +96,14 @@ router.post('/send',(req,res, next)=>{
             port:465,
             secure: true,
             auth:{
-                user:'rudiak.denchik@gmail.com',
-                pass:'mamatato2000'
+                user:'convertor.app@gmail.com',
+                pass:'manyclients'
             }
 
 
         },
         {
-            from:'Mailer Test <rudiak.denchik@gmail.com>',
+            from:'Mailer Test <convertor.app@gmail.com>',
         }
 
 
