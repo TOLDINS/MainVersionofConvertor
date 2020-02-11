@@ -82,6 +82,7 @@ router.post('/send',(req,res, next)=>{
 
     console.log(req.file);
     console.log(req.body);
+    res.render('admin',{title: "succesful"});
     const message={
         to: req.body.email,
         subject:'Done',
