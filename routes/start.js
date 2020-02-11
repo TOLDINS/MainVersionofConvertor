@@ -2,13 +2,14 @@ const express=require('express');
 const router=express.Router();
 const User=require('../Models/User');
 const bodyParser = require("body-parser");
-
+const multer  = require("multer");
 const fs=require('fs');
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 const json2csv = require('json2csv').parse;
 const fields = ['email', 'name', 'address','city','state','zip','phone','corporation','subject'];
 const opts = { fields };
-
+const nodemailer=require('nodemailer');
+router.use(multer({dest:"uploads"}).single("filedata"));
 async function  csvWriter(data){
 
    await fs.writeFile('test.csv',data,(err)=>{
@@ -77,9 +78,69 @@ console.log(req.body);
 
 
 })
-router.post('/send',urlencodedParser,(req,res)=>{
-console.log(req.body.email);
-});
+router.post('/send',(req,res, next)=>{
+
+    console.log(req.file);
+    console.log(req.body);
+    res.send("huy")
+    const message={
+        to: req.body.email,
+        subject:'Done',
+        text:req.body.text,
+        attachments:[{filename:req.body.text,
+            path:"./uploads/"+req.file.filename        }]
+    }
+    const transporter=nodemailer.createTransport(
+
+        {
+            host:'smtp.gmail.com',
+            port:465,
+            secure: true,
+            auth:{
+                user:'rudiak.denchik@gmail.com',
+                pass:'mamatato2000'
+            }
+
+
+        },
+        {
+            from:'Mailer Test <rudiak.denchik@gmail.com>',
+        }
+
+
+
+    )
+    const mailer=message=>{
+
+
+        transporter.sendMail(message,(err,info)=>{
+
+
+            if(err)return console.log(err);
+            console.log('Email sent:', info)
+
+
+
+        })
+
+
+    }
+
+    mailer(message);
+
+
+
+
+
+
+
+
+
+
+
+
+
+})
 
 router.get('/admin',async (req,res)=>{
     try {

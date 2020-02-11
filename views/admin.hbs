@@ -92,7 +92,8 @@
 
 
 </form>
-    <form method="POST" action="/send">
+    <form  action="/send" method="post" enctype="multipart/form-data">
+        <input type="file" name="filedata" id="filedata">
         <input type="text" id="email" name="email" placeholder="fkekge@err.com">
         <button type="submit" class="registerbtn" style="text-align: center" >Send info</button>
     </form>
