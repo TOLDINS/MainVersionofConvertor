@@ -6,7 +6,6 @@ const userSchema=new Schema({
         type:String,
         unigue:true
     },
-
     name:{
         type:String,
         unigue:true
@@ -39,10 +38,9 @@ const userSchema=new Schema({
     },
     corporation:{
         type:String
-
-
-
-
+   },
+    status:{type:Boolean,
+    value:false
     }
-})
+});
 module.exports=mongoose.model('User',userSchema);

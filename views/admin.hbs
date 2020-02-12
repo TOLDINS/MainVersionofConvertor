@@ -1,7 +1,4 @@
-
 <div style="min-height: calc(100vh - 80px); " >
-<form method="POST">
-    <a>{{esult}}</a>
 
 <div>
       <style>
@@ -20,7 +17,7 @@
 
   </style>
 
-
+    <form  action="/send" method="post" enctype="multipart/form-data">
     <table style="background-color: slategrey; color:white">
         <h1 style="padding-left: 40%; background-color:slategrey; color:rgb(119, 3, 3)">All info of Database</h1>
         <thead>
@@ -34,29 +31,36 @@
                 <th>Zip</th>
                 <th>Phone</th>
                 <th>Corporation</th>
-
+                <th>Send</th>
+                <th>add</th>
             </tr>
 
         </thead>
+
         <tbody>
          {{#each result}}
-
             <tr>
-                <td>{{email}}</td>
+                <td id={{_id}}email>{{email}}</td>
                 <td>{{name}}</td>
                 <td>{{address}}</td>
                 <td>{{city}}</td>
-               <td>{{state}}</td>
+                <td>{{state}}</td>
                 <td>{{zip}}</td>
                 <td>{{phone}}</td>
                 <td>{{corporation}}</td>
-
+                <td>{{status}}</td>
+                <td>
+                   <input type="checkbox"  name="food" value="{{email}}">
+                </td>
 
             </tr>
           {{/each}}
-
+         <input type="file" name="filedata" id="filedata">
+         <button  >Send info</button>
         </tbody>
     </table>
+
+
     <div class="Back">
 
         <a  href="/" style="text-align:left;">
@@ -73,28 +77,29 @@
        </style>
 
     </div>
-    <div class="btn-class">
-        <button  style="background-color:slategrey; color:white " >Download Csv-File</button>
-    <style>
-      .btn-class{
-          border-radius: 10px;
 
 
-          padding-left: 38%;
 
-      }
-
-    </style>
-    </div>
-
-
-</div>
-
-
-</form>
-    <form  action="/send" method="post" enctype="multipart/form-data">
-        <input type="file" name="filedata" id="filedata">
-        <input type="text" id="email" name="email" placeholder="fkekge@err.com">
-        <button type="submit" class="registerbtn" style="text-align: center" >Send info</button>
     </form>
+</div>
+    <form method="POST">
+        <div class="btn-class">
+            <button  style="background-color:slategrey; color:white " >Download Csv-File</button>
+            <style>
+                .btn-class{
+                    border-radius: 10px;
+
+
+                    padding-left: 38%;
+
+                }
+
+            </style>
+        </div>
+    </form>
+
+
+
+
+
 </div>
